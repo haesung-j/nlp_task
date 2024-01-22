@@ -2,8 +2,8 @@ import logging
 import warnings
 from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
 from transformers import BertTokenizer, BertConfig, BertForSequenceClassification
-from nsmc_utils.ClassificationDataUtils import data_collator, NsmcCorpus, ClassificationDataset, TrainArguments
-from nsmc_utils.ClassificationTrainer import ClassificationTask, get_trainer
+from nsmc_utils.data_utils import data_collator, NsmcCorpus, ClassificationDataset, TrainArguments
+from nsmc_utils.trainer import ClassificationTask, get_trainer
 
 
 warnings.filterwarnings('ignore')
@@ -12,9 +12,9 @@ logging.basicConfig(level=logging.INFO,
 
 def run():
     args = TrainArguments(
-        max_seq_length=128,
+        max_seq_length=64,
         data_root_path='./data/nsmc',
-        batch_size=64,
+        batch_size=128,
         model_dir='./model'
     )
 

@@ -17,63 +17,6 @@ logger = logging.getLogger(__name__)
 #     'data_root_path': './data/nsmc'
 # }
 
-@dataclass
-class TrainArguments:
-    pretrained_model_name: str = field(
-        default="beomi/kcbert-base",
-        metadata={"help": "pretrained model name"}
-    )
-    model_dir: str = field(
-        default=None,
-        metadata={"help": "The output model dir."}
-    )
-    max_seq_length: int = field(
-        default=128,
-        metadata={
-            "help": "The maximum total input sequence length after tokenization. Sequences longer "
-                    "than this will be truncated, sequences shorter will be padded."
-        }
-    )
-    data_root_path: str = field(
-        default='./data/nsmc',
-        metadata={"help": "Data root directory."}
-    )
-    monitor: str = field(
-        default="min val_loss",
-        metadata={"help": "monitor condition (save top k)"}
-    )
-    save_top_k: int = field(
-        default=1,
-        metadata={"help": "save top k model checkpoints."}
-    )
-    seed: int = field(
-        default=None,
-        metadata={"help": "random seed."}
-    )
-    learning_rate: float = field(
-        default=5e-5,
-        metadata={"help": "learning rate"}
-    )
-    epochs: int = field(
-        default=3,
-        metadata={"help": "max epochs"}
-    )
-    batch_size: int = field(
-        default=64,
-        metadata={"help": "batch size. if 0, Let PyTorch Lightening find the best batch size"}
-    )
-    cpu_workers: int = field(
-        default=os.cpu_count(),
-        metadata={"help": "number of CPU workers"}
-    )
-    fp16: bool = field(
-        default=False,
-        metadata={"help": "Enable train on FP16"}
-    )
-    test_mode: bool = field(
-        default=False,
-        metadata={"help": "Test Mode enables `fast_dev_run`"}
-    )
 
 @dataclass
 class ClassificationTexts:
