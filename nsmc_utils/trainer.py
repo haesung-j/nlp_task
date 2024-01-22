@@ -5,7 +5,7 @@ from transformers import PreTrainedModel
 from transformers.optimization import AdamW
 from pytorch_lightning import LightningModule
 from torch.optim.lr_scheduler import ExponentialLR
-from .ClassificationDataUtils import TrainArguments
+from .arguments import TrainArguments
 
 from pytorch_lightning import Trainer
 from pytorch_lightning.callbacks import ModelCheckpoint
